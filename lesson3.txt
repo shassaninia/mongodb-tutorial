@@ -1,0 +1,52 @@
+1. Get all goalies from team
+db.players.find({
+    "position":"Goalie"
+});
+
+2. Just get the first Goalie you find
+db.players.findOne({
+    "position":"Goalie"
+});
+
+3. Find all players who are defensemen and 21
+   This ANDs the criteria together
+db.players.find({
+    "position":"Defenseman","age":21
+});
+
+4. Find all players who play left wing OR right wing
+   Use $or operator
+db.players.find({
+    $or:[
+        {"position":"Left Wing","position":"Right Wing"}
+    ]
+});
+
+5. Find all players over 30
+   $gt - Greater Than
+   $lt - Less Than
+   $gte - Greater Than or Equal
+   $lte - Less Than or Equal
+   $ne - Not Equal
+
+db.players.find({
+    "age": {$gt:30}
+});
+
+6. Find all players that are centers and just diplay name
+   {"name":1,_id:0} - Means return name (1 means true), Explicity set _id to 0 or
+   it will return it in results
+db.players.find({
+    "position":"Center"
+},{"name":1,_id:0});
+
+7. Limit the number of players returned
+   Use the limit function
+   db.players.find({
+    "position":"Center"
+},{"name":1,_id:0}).limit(3);
+
+8. Skip results using skip()
+   db.players.find({
+    "position":"Center"
+},{"name":1,_id:0}).skip(2);
