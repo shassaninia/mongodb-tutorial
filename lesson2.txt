@@ -1,0 +1,21 @@
+1. Find a document by criteria
+
+- The object passed into find is the selection criteria.
+- Find a playe with the _id = ObjectId("589551239ec5ba52b2280355")
+db.players.find({ "_id" : ObjectId("589551239ec5ba52b2280355")});
+
+
+2. Remove a doucment by selection criteria
+ db.players.remove({ "_id" : ObjectId("589551239ec5ba52b2280355")});
+
+3. Update a document by section criteria and update criteria
+ -- Find a player with _id = ObjectId("5895513e9ec5ba52b228035b")
+    and update their position and name
+ db.players.update({"_id" : ObjectId("5895513e9ec5ba52b228035b")},{"position":"Left Wing","name":"Bob Bennet"});
+
+
+ 4. Drop a collection from a db
+ db.players.drop();
+
+ 5. Show collections in a db
+ show colllections
