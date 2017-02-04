@@ -1,0 +1,94 @@
+#Commands
+
+1. db - lists a db
+
+Database contains collections and a collection contains documents
+
+2. use hockey - This will look for a database called 'hockey'.
+If it finds it, it will switch to use it.  If it does not find it, it will
+create it. To see the current databse in use, just run:
+db
+
+3. db.dropDatabase(); - Drops current database
+
+//Adding to a a collection
+//if it does not find the players collection, it will be added
+db.players.insert({ 
+         "position":"Right Wing",
+         "id":8465166,
+         "weight":200,
+         "height":"6' 0\"",
+         "imageUrl":"http://1.cdn.nhle.com/photos/mugs/8465166.jpg",
+         "birthplace":"Seria, BRN",
+         "age":37,
+         "name":"Craig Adams",
+         "birthdate":"April 26, 1977",
+         "number":27
+      });
+
+//Insert a bunch of documents
+db.players.insert([    {  
+         "position":"Center",
+         "id":8470654,
+         "twitterURL":"https://twitter.com/MaX40LAp",
+         "weight":215,
+         "height":"6' 2\"",
+         "imageUrl":"http://3.cdn.nhle.com/photos/mugs/8470654.jpg",
+         "birthplace":"Saint-L�onard, QC, CAN",
+         "twitterHandle":"MaX40LAp",
+         "age":30,
+         "name":"Maxim Lapierre",
+         "birthdate":"March 29, 1985",
+         "number":40
+      },
+      {  
+         "position":"Center",
+         "id":8471215,
+         "twitterURL":"https://twitter.com/malkin71_",
+         "weight":195,
+         "height":"6' 3\"",
+         "imageUrl":"http://3.cdn.nhle.com/photos/mugs/8471215.jpg",
+         "birthplace":"Magnitogorsk, RUS",
+         "twitterHandle":"malkin71_",
+         "age":28,
+         "name":"Evgeni Malkin",
+         "birthdate":"July 31, 1986",
+         "number":71
+      },
+      {  
+         "position":"Left Wing",
+         "id":8474102,
+         "twitterURL":"https://twitter.com/DP_57",
+         "weight":200,
+         "height":"6' 0\"",
+         "imageUrl":"http://3.cdn.nhle.com/nhl/en/v3/photos/mugs/8474102.jpg",
+         "birthplace":"Sherbrooke, QC, CAN",
+         "twitterHandle":"DP_57",
+         "age":26,
+         "name":"David Perron",
+         "birthdate":"May 28, 1988",
+         "number":39
+      },
+      {  
+         "position":"Center",
+         "id":8474096,
+         "weight":201,
+         "height":"6' 1\"",
+         "imageUrl":"http://3.cdn.nhle.com/photos/mugs/8474096.jpg",
+         "birthplace":"Palmerston, ON, CAN",
+         "age":26,
+         "name":"Nick Spaling",
+         "birthdate":"September 19, 1988",
+         "number":13
+      }])
+
+//Show all documents in a collection with the find() keyword
+db.players.find() 
+
+//Show all documents in a pretty format using find().pretty();
+
+db.playrs.find().pretty()
+
+//Find one documents
+db.players.findOne()
+
