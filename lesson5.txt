@@ -1,0 +1,14 @@
+1. Group users by eyeColor and show the sum of each group
+
+db.users.aggregate({$group:{_id:"$eyeColor",
+                            total:{$sum:1}}})
+
+2. Group users by gender and show the average age of each group
+
+db.users.aggregate({$group:{_id:"$gender",
+                            avgAge :{$avg:"$age"}}})
+
+
+3. Group by gender and find the max balance for each group
+db.users.aggregate({$group:{_id:"$gender",
+                            richest :{$max:"$balance"}}})
